@@ -13,6 +13,11 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
+// Root endpoint to test backend
+app.get('/', (req: Request, res: Response) => {
+  res.json({ status: 'ok', message: 'Backend is running' });
+});
+
 let lastConnection: ConnectRequestBody | null = null;
 
 app.post('/connect', async (req: Request<{}, any, ConnectRequestBody>, res: Response) => {
