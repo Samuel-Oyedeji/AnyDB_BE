@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  appbe:
+    build: .
+    ports:
+      - "5000:5000"
+    networks:
+      - my_shared_network
+    # depends_on:
+    #   - mongo
+
+  # mongo:
+  #   image: mongo
+  #   restart: always
+  #   ports:
+  #     - "27017:27017"
+  #   environment:
+  #     MONGO_INITDB_ROOT_USERNAME: root
+  #     MONGO_INITDB_ROOT_PASSWORD: root
+  #   networks:
+  #     - my_shared_network
+
+networks:
+  my_shared_network:
+    name: my_shared_network
